@@ -1,15 +1,12 @@
 # Best Parts Map: Architectural Extraction
 
-This map identifies which model contributed the best reasoning for each specific architectural layer.
-
-| Layer | Source LLM | Why it was the best? |
-| :--- | :--- | :--- |
-| **Data Foundation** | Claude 3.5 Sonnet | Deep knowledge of ELT/ETL modern stacks (Airbyte, dbt). |
-| **Stats & Monitoring** | GPT-4o | Precise about A/B testing frameworks and drift monitoring. |
-| **ML Models** | Claude 3.5 Sonnet | Accurately identifies classic ML (Ranking/Filtering) alongside LLMs. |
-| **LLM / GenAI** | Gemini 1.5 Pro | Best understanding of massive context windows and RAG pitfalls. |
-| **Infra & Serving** | Claude 3.5 Sonnet | Most realistic about GPU serving (vLLM, Triton, K8s). |
-| **System Scale** | Gemini 1.5 Pro | Naturally considers CAP theorem and global state distribution. |
-
-### Decision Framework Integration
-The **V2 Prompt** was rebuilt by combining the **Systemic Depth** of Gemini, the **Logical Precision** of GPT, and the **Engineering Tone** of Claude.
+| Layer                              | Best LLM for This Layer | What to Extract (key paragraph/section)                                                                                                                                                               |
+| ---------------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Layer 1: Data Foundation           | LLM 1 (GPT-4)           | “Use Kafka for streaming ingestion, CDC for database replication, enforce schema evolution policies, and separate OLTP from OLAP workloads via Snowflake or BigQuery.”                                |
+| Layer 2: Statistics & Analysis     | LLM 1 (GPT-4)           | “Monitor feature drift using KL divergence and implement Bayesian inference for uncertainty estimation rather than relying purely on point estimates.”                                                |
+| Layer 3: ML Models                 | LLM 1 (GPT-4)           | “Use gradient boosted trees (XGBoost/LightGBM) for structured tabular data, deep neural networks for high-dimensional unstructured data, and apply model monitoring to detect concept drift.”         |
+| Layer 4: LLM / Generative AI       | LLM 1 (GPT-4)           | “Prefer Retrieval-Augmented Generation (RAG) over fine-tuning when domain knowledge changes frequently; use embeddings for semantic search and implement hallucination mitigation through grounding.” |
+| Layer 5: Deployment & Infra        | LLM 1 (GPT-4)           | “Containerize models, deploy via Kubernetes with autoscaling policies, enforce CI/CD for model versioning, and monitor latency budgets and resource utilization.”                                     |
+| Layer 6: System Design & Scale     | LLM 1 (GPT-4)           | “Design for horizontal scalability, isolate bottlenecks in feature stores, handle consistency tradeoffs, and implement caching layers to reduce inference latency.”                                   |
+| Overall Analysis / Hardest Problem | LLM 1 (GPT-4)           | “The hardest problem is not modeling but maintaining data quality and handling distribution drift at scale in production systems.”                                                                    |
+| Writing Style / Structure          | LLM 2 (Claude)          | “Clearly separated conceptual layers, emphasized assumptions, and structured responses in clean, logically grouped sections.”                                                                         |
